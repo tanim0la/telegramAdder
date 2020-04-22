@@ -43,8 +43,15 @@ elif clearType == 'c':
 else:
     print('Invalid input!!!')
     sys.exit()
-clear()
+    
+if sys.version_info[0] < 3:
+    telet = lambda :os.system('pip install -U telethon')
+elif sys.version_info[0] >= 3:
+    telet = lambda :os.system('pip3 install -U telethon')
 
+telet()
+time.sleep(1)
+clear()
 
 if os.path.isfile('getmem_log.txt'):
     with open('getmem_log.txt', 'r') as r:
@@ -84,7 +91,7 @@ async def main():
         count = 1
         i = 0
         for user in users:
-            if count%10 == 0:
+            if count%50 == 0:
                 clear()
                 print(colorText(wt))
                 print('')
@@ -105,7 +112,6 @@ async def main():
             else:
                 try:
                     user_to_add = InputPeerUser(user['uid'], user['access_hash'])
-                    client.send_message(user_to_add, '')
                     add = await client(InviteToChannelRequest(target_group_entity,[user_to_add]))
                     print(gr+'Added ', str(user['uid']))
                     
