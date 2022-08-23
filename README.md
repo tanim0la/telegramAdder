@@ -2,7 +2,7 @@
 Its a python script that automatically fetch members from any telegram group and add them to your desired channel or group.
 
 
-*********************THINGS TO KNOW**************************
+*********************THINGS TO KNOW***************************
 
 1. You can only add 200 subscribers to telegram channel.
 2. You can only add 50 members to telegram group with one account and the limit is 100k.
